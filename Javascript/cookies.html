@@ -1,0 +1,94 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+    <script>
+        function WriteCookie(){
+            alert("hi");
+            var now = new Date();
+            now.setMonth(now.getMonth() - 1);
+            var cookievalue = escape(document.myForm.fname.value)+";";
+            document.cookie = "name="+cookievalue +"expires="+now.toUTCString() + ";";
+            document.write("setting cookie:"+ cookievalue);
+         }
+             
+     </script>
+</head>
+<body>
+    <form id="myForm" action="">
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="fname" name="fname"><br><br>
+        <input type="button" value="Set Cookie" onclick="WriteCookie();">
+    </form>
+    </div>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+    <script>
+        function writeCookie() {
+        
+            var now = new Date();
+            now.setMonth(now.getMonth() - 1);
+
+            var cookieValue = escape(document.getElementById("fname").value) + ";";
+            document.cookie = "name=" + cookieValue + "expires=" + now.toUTCString() + "; path=/";
+
+            document.write("setting cookie:"+ cookieValue);
+        }
+    </script>
+</head>
+<body>
+    <form id="myForm">
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="fname" name="fname"><br><br>
+        <input type="button" value="Set Cookie" onclick="writeCookie();">
+    </form>
+    <p id="cookieStatus"></p>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Cookie Example</title>
+    <script>
+        function writeCookie() {
+            // Check if the input field is empty
+            if (document.myform.customer.value === "") {
+                alert("Enter some value");
+                return;
+            }
+
+            // Get the input value and escape it for safety
+            var cookieValue = escape(document.myform.customer.value) + ";";
+            
+            // Set the cookie with the name 'name' and the input value
+            document.cookie = "name=" + cookieValue;
+
+            // Display a message indicating the cookie has been set
+            document.getElementById("cookieStatus").innerText = "Setting cookie: " + cookieValue;
+
+            // Prevent form submission to keep the page from reloading
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <form name="myform" action="" onsubmit="return writeCookie()">
+        <label for="customer">Name:</label>
+        <input type="text" name="customer" id="customer">
+        <input type="submit" value="Submit">
+    </form>
+    <p id="cookieStatus"></p>
+</body>
+</html>
+
